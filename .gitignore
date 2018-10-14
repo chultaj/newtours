@@ -1,0 +1,10 @@
+# Ignore Intellij project files and idea directory
+.idea/
+out/
+
+# Gradle related
+.gradle/
+build/
+
+@ Cucumber reports
+reports/
