@@ -2,17 +2,17 @@ package com.demoaut.newtours.driver;
 
 public class BrowserFactory {
 
-    public static Browser getDriverFactory(BrowserVendor browserVewndor) {
+    public static Browser getDriverFactory(String browserVewndor, String driverPath) {
         Browser browser = null;
 
         switch (browserVewndor){
-            case CHROME:
-                browser = new Chrome();
+            case "chrome":
+                browser = new Chrome(driverPath);
                 break;
-            case FIREFOX:
-                browser = new Firefox();
+            case "firefox":
+                browser = new Firefox(driverPath);
                 break;
-            case SAFARI:break;
+            case "safari":break;
         }
 
         return browser;
