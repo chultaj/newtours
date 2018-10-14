@@ -4,3 +4,6 @@
 # Running on Windows (not tested)
 1. Modify driver property in drivers/browser.properties to point to windows binary
 2. Gradle: gradlew.bat cucumber
+
+
+Test report is saved to reports/cucumber-reports/
