@@ -6,18 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class Reservation {
 
     WebDriver drv;
 
     @FindBy(name="tripType")
-    WebElement tripType;
-
-    @FindBy(name="passCount")
-    WebElement passCount;
-
-    @FindBy(name="fromPort")
-    WebElement fromPort;
+    List<WebElement> tripType;
 
     @FindBy(name="fromMonth")
     WebElement fromMonth;
@@ -33,12 +29,6 @@ public class Reservation {
 
     @FindBy(name="toDay")
     WebElement toDay;
-
-    @FindBy(name="servClass")
-    WebElement servClass;
-
-    @FindBy(name="airline")
-    WebElement airline;
 
     @FindBy(name="findFlights")
     WebElement findFlights;
@@ -69,5 +59,11 @@ public class Reservation {
 
     public void setReturnDay(String returnDay) {
         new Select(this.toDay).selectByValue(returnDay);
+    }
+
+    public void choseFlightType(String oneway) {
+        for (WebElement radio : this.tripType)
+            if (radio.getAttribute("value").equalsIgnoreCase(oneway))
+                radio.click();
     }
 }

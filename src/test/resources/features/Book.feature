@@ -47,11 +47,9 @@ Feature: Booking flights on new Mercury Tours site
       | "December 12" | "December 19" | "Paris"         | "Blue Skies Airlines$360$270$5:03" | "Pangea Airlines$632$282$16:37"  |
       | "January 24"  | "January 30"  | "San Francisco" | "Pangea Airlines$362$274$9:17"     | "Unified Airlines$633$303$18:44" |
 
-#  Scenario Outline: Choose a one way flight
-#    Given "Find a Flight" page is open
-#    When I provide flight details: <type>
-#    And I click continue button
-#
-#    Examples:
-#      | type   |
-#      | oneway |
+  Scenario: Choose a one way flight (Buggy scenario)
+    Given "Find a Flight" page is open
+    When I choose oneway flight
+    And I click continue button
+    Then "Select a Flight" page opens
+    And Only Departure flighs are displayed

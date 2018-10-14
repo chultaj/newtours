@@ -62,9 +62,8 @@ public class Action {
         reservation2.chooseFlight(flight);
     }
 
-    @When("I provide flight details: (oneway|roundtrip)")
-    public void i_provide_flight_details(String type) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @When("I choose oneway flight")
+    public void i_choose_oneway_flight() {
+        reservation.choseFlightType("oneway");
     }
 }

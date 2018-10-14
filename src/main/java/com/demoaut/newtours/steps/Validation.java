@@ -59,4 +59,12 @@ public class Validation {
     public void message_is_displayed(String text) {
         Assert.assertTrue(purchase2.checkConfirmation(text));
     }
+
+    @Then("Only Departure flighs are displayed")
+    public void only_Departure_flighs_are_displayed() {
+        // Write code here that turns the phrase above into concrete actions
+        Assert.assertTrue(reservation2.getInFlights().isEmpty(), "There should be no return flights!");
+    }
+
+
 }
