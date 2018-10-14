@@ -1,7 +1,6 @@
 package com.demoaut.newtours.steps;
 
 import com.demoaut.newtours.pageobjects.MercuryPurchase2;
-import com.demoaut.newtours.pageobjects.Reservation;
 import com.demoaut.newtours.pageobjects.Reservation2;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,13 +10,12 @@ import java.util.List;
 
 public class Validation {
 
-    Reservation reservation = new Reservation(Hooks.drv);
     Reservation2 reservation2 = new Reservation2(Hooks.drv);
     MercuryPurchase2 purchase2 = new MercuryPurchase2(Hooks.drv);
 
     @Given("^\"(.*?)\" page is open$")
     @Then("^\"(.*?)\" page opens$")
-    public void pageTitleMatches(String pageTitle) {
+    public void page_is_open(String pageTitle) {
         String actualTitle =Hooks.drv.getTitle();
         if (actualTitle.endsWith(":"))
             Assert.assertEquals(actualTitle,pageTitle + ": Mercury Tours:");
@@ -26,7 +24,7 @@ public class Validation {
     }
 
     @Then("the result page contains \"(.*?)\" flights")
-    public void checkFlightList(String type, List<String> flightsList) {
+    public void the_result_page_contains_flights(String type, List<String> flightsList) {
         List<String> fligtsOnPage;
         switch (type) {
             case("in") :
@@ -42,7 +40,7 @@ public class Validation {
     }
 
     @Then("\"(.*?)\" is on the (out|in) flights list")
-    public void isOnFlightList(String flight, String type) {
+    public void flight_is_on_the_flights_list(String flight, String type) {
         List<String> fligtsOnPage;
         switch (type) {
             case("in") :
@@ -58,7 +56,7 @@ public class Validation {
     }
 
     @Then("\"(.*?)\" message is displayed$")
-    public void verifyMessage(String text) {
+    public void message_is_displayed(String text) {
         Assert.assertTrue(purchase2.checkConfirmation(text));
     }
 }
